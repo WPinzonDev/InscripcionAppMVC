@@ -2,7 +2,7 @@
 
 # Proyecto InscripcionAppMVC
 
-Este proyecto utiliza ASP.NET Core MVC con DevExpress, y las vistas están diseñadas usando Tailwind CSS y Blazor.
+Este proyecto utiliza ASP.NET Core MVC y las vistas están diseñadas usando Tailwind CSS y Blazor.
 
 ## Descripción
 
