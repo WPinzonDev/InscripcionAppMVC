@@ -1,0 +1,81 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Clases personalizadas */
+.input-custom {
+    @apply w-full p-3 border border-sky-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+.label-custom {
+    @apply block text-gray-700 font-medium mb-2;
+}
+
+.btn-primary {
+    @apply px-4 py-2 bg-blue-600 text-white rounded-md shadow-sm hover:bg-blue-700;
+}
+
+.form-group {
+    @apply mb-6;
+}
+
+.step-container {
+    @apply flex items-center justify-center space-x-4 mb-8;
+}
+
+.step {
+    @apply flex items-center text-gray-400;
+}
+
+.step-active {
+    @apply flex items-center text-sky-800;
+}
+
+.step-line {
+    @apply h-0.5 w-12 bg-gray-300;
+}
+
+.step-line-active {
+    @apply h-0.5 w-12 bg-sky-800;
+}
+
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+.buttons-print, .buttons-excel, .buttons-pdf {
+    @apply text-white bg-sky-600 hover:bg-sky-700 font-medium rounded-lg text-sm px-5 py-2.5;
+}
+
+tfoot input {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 3px;
+    box-sizing: border-box;
+}
+tfoot input::placeholder {
+    color: #ccc;
+    text-align: left !important;
+    margin: 0px 0px 0px 0px !important;
+    padding: 0px 0px 0px 0px !important;
+}
+
+.card {
+    @apply bg-white shadow-md rounded-lg p-6 mb-6;
+}
+
+.card-header {
+    @apply text-xl font-semibold mb-4;
+}
+
+.card-body {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
+
+.card-item {
+    @apply mt-1;
+}
+
+.back-link {
+    @apply text-blue-500 hover:underline;
+}

@@ -1,0 +1,102 @@
+﻿@model InscripcionAppMVC.Models.Inscripcion
+
+@{
+    ViewData["Title"] = "Registro";
+}
+<div class="bg-white min-h-screen flex justify-center rounded">
+    <div class="bg-white p-8 rounded-lg w-full max-w-4xl">
+        <h1 class="text-2xl font-bold mb-6 text-center">Inscripción de Aspirante</h1>
+        
+        <div class="step-container">
+            <div id="infopersonal" class="step step-active">
+                <div class="w-8 h-8 flex items-center justify-center border-2 border-sky-800 rounded-full">1</div>
+                <span class="ml-2 font-semibold">Información Personal</span>
+            </div>
+            <div class="step-line"></div>
+            <div id="infoacademica" class="step">
+                <div class="w-8 h-8 flex items-center justify-center border-2 border-gray-400 rounded-full">2</div>
+                <span class="ml-2 font-semibold">Información Académica</span>
+            </div>
+        </div>
+
+        <div asp-validation-summary="ModelOnly" class="text-red-600 mb-4"></div>
+
+        <form asp-action="MatricularAspirante" method="post">
+    <div id="step1" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="form-group">
+            <label asp-for="Aspirante.TipoDocumento" class="label-custom"></label>
+            <select asp-for="Aspirante.TipoDocumento" class="input-custom" required asp-items="ViewBag.TiposDocumento">
+                <option value="">Seleccionar...</option>
+            </select>
+            <span asp-validation-for="Aspirante.TipoDocumento" class="text-red-600"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Aspirante.Documento" class="label-custom"></label>
+            <input asp-for="Aspirante.Documento" class="input-custom" required />
+            <span asp-validation-for="Aspirante.Documento" class="text-red-600"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Aspirante.Nombre" class="label-custom"></label>
+            <input asp-for="Aspirante.Nombre" class="input-custom" required  />
+            <span asp-validation-for="Aspirante.Nombre" class="text-red-600"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Aspirante.Apellido" class="label-custom"></label>
+            <input asp-for="Aspirante.Apellido" class="input-custom" required />
+            <span asp-validation-for="Aspirante.Apellido" class="text-red-600"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Aspirante.FechaNacimiento" class="label-custom"></label>
+            <input asp-for="Aspirante.FechaNacimiento" class="input-custom" required />
+            <span asp-validation-for="Aspirante.FechaNacimiento" class="text-red-600"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Aspirante.Ciudad" class="label-custom"></label>
+            <select asp-for="Aspirante.Ciudad" class="input-custom" required asp-items="ViewBag.Ciudades"></select>
+            <span asp-validation-for="Aspirante.Ciudad" class="text-red-600"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Aspirante.Direccion" class="label-custom"></label>
+            <input asp-for="Aspirante.Direccion" class="input-custom" required />
+            <span asp-validation-for="Aspirante.Direccion" class="text-red-600"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Aspirante.Telefono" class="label-custom"></label>
+            <input asp-for="Aspirante.Telefono" class="input-custom" required />
+            <span asp-validation-for="Aspirante.Telefono" class="text-red-600"></span>
+        </div>
+        <div class="form-group col-span-1 md:col-span-2">
+            <label asp-for="Aspirante.CorreoElectronico" class="label-custom"></label>
+            <input asp-for="Aspirante.CorreoElectronico" class="input-custom" required />
+            <span asp-validation-for="Aspirante.CorreoElectronico" class="text-red-600"></span>
+        </div>
+     </div>
+     <div id="step2" class="grid grid-cols-1 md:grid-cols-2 gap-6 offscreen">
+        <div class="form-group">
+            <label asp-for="ProgramaId" class="label-custom"></label>
+            <select asp-for="ProgramaId" class="input-custom" required asp-items="ViewBag.Programas">
+                <option value="">Seleccionar...</option>
+            </select>
+            <span asp-validation-for="ProgramaId" class="text-red-600"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TipoAspiranteId" class="label-custom"></label>
+            <select asp-for="TipoAspiranteId" class="input-custom" required asp-items="ViewBag.TiposAspirante">
+                <option value="">Seleccionar...</option>
+            </select>
+            <span asp-validation-for="TipoAspiranteId" class="text-red-600"></span>
+        </div>
+    </div>
+    <div class="flex justify-end mt-6">
+        <button id="anterior" type="button" class="shadow bg-gray-600 hover:bg-sky-800 text-white py-2 px-4 rounded-md mr-2 offscreen">Anterior</button>
+        <button id="siguiente" type="button" class="shadow bg-sky-600 hover:bg-sky-600 text-white py-2 px-4 rounded-md mr-2">Siguiente</button>
+        <input id="registrar" type="submit" value="Registrar" class="shadow bg-sky-600 hover:bg-sky-800 text-white py-2 px-4 rounded-md offscreen" />
+    </div>
+</form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
